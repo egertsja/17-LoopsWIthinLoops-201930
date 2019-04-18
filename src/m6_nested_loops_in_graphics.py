@@ -4,8 +4,8 @@ in the context of TWO-DIMENSIONAL GRAPHICS.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Jonah Egertson.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -81,9 +81,20 @@ def draw_L(window, circle, r, c):
     and m and n are small, positive integers.
     """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     # -------------------------------------------------------------------------
+    for j in range(r+3):
+        for k in range(3):
+            circle2=rg.Circle(rg.Point(circle.center.x+2*k*circle.radius,circle.center.y+2*j*circle.radius),circle.radius)
+            circle2.fill_color=circle.fill_color
+            circle2.attach_to(window)
+    for j in range(c+3):
+        for k in range(3):
+            circle2=rg.Circle(rg.Point(circle.center.x+2*j*circle.radius,circle.center.y+2*(k+r)*circle.radius),circle.radius)
+            circle2.fill_color=circle.fill_color
+            circle2.attach_to(window)
+    window.render()
 
 
 def run_test_draw_wall_on_right():
@@ -125,6 +136,11 @@ def draw_wall_on_right(rectangle, n, window):
     # TODO: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     # -------------------------------------------------------------------------
+    for j in range(n):
+        for k in range(1,j):
+            rect=rg.Rectangle(rg.Point(rectangle.corner_1.x-k*(rectangle.corner_2.x-rectangle.corner_1.x),rectangle.corner_1.y+j*(rectangle.corner_2.y-rectangle.corner_1.y)),rg.Point(rectangle.corner_2.x-k*(rectangle.corner_2.x-rectangle.corner_1.x),rectangle.corner_2.y+j*(rectangle.corner_2.y-rectangle.corner_1.y)))
+            rect.attach_to(window)
+            #window.render(0.1)
 
 
 # -----------------------------------------------------------------------------
